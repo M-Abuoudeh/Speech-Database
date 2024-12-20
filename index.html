@@ -65,9 +65,18 @@
     <script>
         function changeLanguage(lang) {
             document.querySelectorAll('[lang]').forEach(el => {
-                el.style.display = el.lang === lang ? 'block' : 'none';
+                if (el.getAttribute('lang') === lang) {
+                    el.style.display = 'block';
+                } else {
+                    el.style.display = 'none';
+                }
             });
         }
+
+        // Set the default language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('en'); // Default language is English
+        });
     </script>
 </head>
 <body>
