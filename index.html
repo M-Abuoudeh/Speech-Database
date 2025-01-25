@@ -3,147 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech Database of Jordanian Arabic Dialect</title>
+    <title>Jordanian Arabic Speech Database</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: #0078D7;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background: #333;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 1rem;
-        }
-        nav a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .language-selector {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
-        .language-selector select {
-            padding: 0.2rem;
-            border-radius: 5px;
-            border: none;
-        }
-        section {
-            padding: 2rem;
+        #map {
+            height: 400px;
+            margin: 20px auto;
             max-width: 800px;
-            margin: auto;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        [lang] {
-            display: none;
-        }
-        [lang="en"] {
-            display: block;
+            border: 2px solid #007bff;
+            border-radius: 8px;
         }
     </style>
-    <script>
-        function changeLanguage(lang) {
-            document.querySelectorAll('[lang]').forEach(el => {
-                if (el.getAttribute('lang') === lang) {
-                    el.style.display = 'block';
-                } else {
-                    el.style.display = 'none';
-                }
-            });
-        }
-
-        // Set the default language on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            changeLanguage('en'); // Default language is English
-        });
-    </script>
 </head>
 <body>
     <header>
-        <h1>Speech Database of Jordanian Arabic Dialect</h1>
-        <p lang="en">Creating a resource for phonetic analysis and research on Jordanian dialects</p>
-        <p lang="fr">Créer une ressource pour l'analyse phonétique et la recherche sur les dialectes jordaniens</p>
-        <p lang="ar">إنشاء مورد لتحليل النطق والبحث في اللهجات الأردنية</p>
+        <h1>Jordanian Arabic Speech Database</h1>
+        <nav>
+            <a href="task1.html">Laylaa witheeb</a>
+            <a href="task2.html">CVC Words</a>
+            <a href="task3.html">Gemination</a>
+            <a href="task4.html">Ereeh wishams</a>
+            <a href="task5.html">Frog Story</a>
+            <a href="task6.html">Conversation</a>
+        </nav>
     </header>
-    <div class="language-selector">
-        <select onchange="changeLanguage(this.value)">
-            <option value="en" selected>English</option>
-            <option value="fr">Français</option>
-            <option value="ar">العربية</option>
-        </select>
-    </div>
-    <nav>
-        <div>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#database">Database</a>
-            <a href="#research">Research</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-    <section id="home">
-        <h2 lang="en">Welcome</h2>
-        <h2 lang="fr">Bienvenue</h2>
-        <h2 lang="ar">أهلا وسهلا</h2>
-        <p lang="en">This project aims to create a phonetic database for Jordanian dialects ready for use in phonetic analysis and statistics, available to all who are interested in this field.</p>
-        <p lang="fr">Ce projet vise à créer une base de données phonétique pour les dialectes jordaniens, prête à être utilisée dans l'analyse phonétique et les statistiques, disponible pour tous ceux qui s'intéressent à ce domaine.</p>
-        <p lang="ar">يهدف هذا المشروع إلى إنشاء قاعدة بيانات صوتية للهجات الأردنية جاهزة للاستخدام في التحليل الصوتي والإحصاءات، ومتاحة لجميع المهتمين بهذا المجال.</p>
-    </section>
-    <section id="about">
-        <h2 lang="en">About the Project</h2>
-        <h2 lang="fr">À propos du projet</h2>
-        <h2 lang="ar">حول المشروع</h2>
-        <p lang="en">The presence of the phonetic database will make it easier for local and international researchers to conduct scientific research on Jordanian dialects. It aims to study dialects that have not been researched before or those lacking sufficient phonetic analysis. The project also enables comparisons of phonetic similarities and differences between various Jordanian dialects, providing an accurate description of their phonetic system.</p>
-        <p lang="fr">La présence de la base de données phonétique facilitera les recherches scientifiques pour les chercheurs locaux et internationaux sur les dialectes jordaniens. Elle vise à étudier des dialectes qui n'ont pas encore été étudiés ou qui manquent d'analyse phonétique suffisante. Le projet permet également des comparaisons des similitudes et des différences phonétiques entre les différents dialectes jordaniens, offrant une description précise de leur système phonétique.</p>
-        <p lang="ar">وجود قاعدة البيانات الصوتية سيُسهِّل على الباحثين المحليين والدوليين إجراء أبحاث علمية حول اللهجات الأردنية. يهدف المشروع إلى دراسة اللهجات التي لم يتم دراستها من قبل أو التي تفتقر إلى تحليل صوتي كافٍ. كما يُمكن المشروع من إجراء مقارنات بين التشابهات والاختلافات الصوتية بين اللهجات الأردنية المختلفة، مما يوفّر وصفًا دقيقًا لنظامها الصوتي.</p>
-    </section>
-    <section id="database">
-        <h2 lang="en">Database</h2>
-        <h2 lang="fr">Base de données</h2>
-        <h2 lang="ar">قاعدة البيانات</h2>
-        <p lang="en">The phonetic database will be accessible to researchers interested in Jordanian dialects. More details about access will be available here soon.</p>
-        <p lang="fr">La base de données phonétique sera accessible aux chercheurs intéressés par les dialectes jordaniens. Plus de détails sur l'accès seront bientôt disponibles ici.</p>
-        <p lang="ar">ستكون قاعدة البيانات الصوتية متاحة للباحثين المهتمين باللهجات الأردنية. سيتم توفير المزيد من التفاصيل حول الوصول قريبًا هنا.</p>
-    </section>
-    <section id="research">
-        <h2 lang="en">Research and Analysis</h2>
-        <h2 lang="fr">Recherche et analyse</h2>
-        <h2 lang="ar">البحث والتحليل</h2>
-        <p lang="en">Explore research and analyses conducted using the database. This section will highlight studies and publications based on this resource.</p>
-        <p lang="fr">Explorez les recherches et analyses effectuées à l'aide de la base de données. Cette section mettra en avant des études et publications basées sur cette ressource.</p>
-        <p lang="ar">استكشف الأبحاث والتحليلات التي أُجريت باستخدام قاعدة البيانات. ستسلط هذه القسم الضوء على الدراسات والمنشورات المستندة إلى هذا المورد.</p>
-    </section>
-    <section id="contact">
-        <h2 lang="en">Contact</h2>
-        <h2 lang="fr">Contact</h2>
-        <h2 lang="ar">اتصل بنا</h2>
-        <p lang="en">If you have any questions or would like to collaborate, feel free to reach out at <a href="mailto:contact@example.com">contact@example.com</a>.</p>
-        <p lang="fr">Si vous avez des questions ou souhaitez collaborer, n'hésitez pas à nous contacter à <a href="mailto:contact@example.com">contact@example.com</a>.</p>
-        <p lang="ar">إذا كانت لديك أي أسئلة أو كنت ترغب في التعاون، لا تتردد في التواصل معنا عبر البريد الإلكتروني <a href="mailto:contact@example.com">contact@example.com</a>.</p>
-    </section>
+    <main>
+        <h2>About the Project</h2>
+        <p>
+            This project aims to create a phonetic database for Jordanian dialects, ready for use in phonetic analysis and statistics. 
+            It provides a resource for researchers interested in studying phonetic similarities and differences across Jordanian dialects.
+        </p>
+        <h2>Interactive Map</h2>
+        <div id="map"></div>
+    </main>
     <footer>
-        <p>&copy; 2024 Speech Database of Jordanian Arabic Dialect</p>
+        &copy; 2025 Jordanian Arabic Speech Database. All rights reserved.
     </footer>
+    <script>
+        var map = L.map('map').setView([31.963158, 35.930359], 7); // Centered on Jordan
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers for governorates
+        var governorates = {
+            "Amman": [31.9539, 35.9106],
+            "Irbid": [32.5569, 35.8474],
+            "Ajloun": [32.3333, 35.7500],
+            "Zarqa": [32.0836, 36.0942],
+            "Mafraq": [32.3428, 36.2080],
+            "Jerash": [32.2808, 35.8940],
+            "Madaba": [31.7169, 35.7936],
+            "Karak": [31.1851, 35.7047],
+            "Tafilah": [30.8375, 35.6044],
+            "Ma'an": [30.1920, 35.7340],
+            "Aqaba": [29.5320, 35.0060],
+            "Balqa": [32.0392, 35.7272],
+            "Bedouins (South)": [30.5, 35.4],
+            "Bedouins (Center)": [31.5, 36.0]
+        };
+
+        for (var gov in governorates) {
+            L.marker(governorates[gov]).addTo(map)
+                .bindPopup(gov)
+                .openPopup();
+        }
+    </script>
 </body>
 </html>
