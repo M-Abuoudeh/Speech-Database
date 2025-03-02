@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordanian Arabic Speech Database</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 400px;
+            margin: 20px auto;
+            max-width: 800px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jordanian Arabic Speech Database</h1>
+        <nav>
+            <a href="task1.html">Laylaa witheeb</a>
+            <a href="task2.html">CVC Words</a>
+            <a href="task3.html">Gemination</a>
+            <a href="task4.html">Ereeh wishams</a>
+            <a href="task5.html">Frog Story</a>
+            <a href="task6.html">Conversation</a>
+        </nav>
+    </header>
+    <main>
+        <h2>About the Project</h2>
+        <p>
+            This project aims to create a phonetic database for Jordanian dialects, ready for use in phonetic analysis and statistics. 
+            It provides a resource for researchers interested in studying phonetic similarities and differences across Jordanian dialects..
+        </p>
+        <h2>Interactive Map</h2>
+        <div id="map"></div>
+    </main>
+    <footer>
+        &copy; 2025 Jordanian Arabic Speech Database. All rights reserved.
+    </footer>
+    <script>
+        var map = L.map('map').setView([31.963158, 35.930359], 7); // Centered on Jordan
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers for governorates
+        var governorates = {
+            "Amman": [31.9539, 35.9106],
+            "Irbid": [32.5569, 35.8474],
+            "Ajloun": [32.3333, 35.7500],
+            "Zarqa": [32.0836, 36.0942],
+            "Mafraq": [32.3428, 36.2080],
+            "Jerash": [32.2808, 35.8940],
+            "Madaba": [31.7169, 35.7936],
+            "Karak": [31.1851, 35.7047],
+            "Tafilah": [30.8375, 35.6044],
+            "Ma'an": [30.1920, 35.7340],
+            "Aqaba": [29.5320, 35.0060],
+            "Balqa": [32.0392, 35.7272],
+            "Bedouins (South)": [30.5, 35.4],
+            "Bedouins (Center)": [31.5, 36.0]
+        };
+
+        for (var gov in governorates) {
+            L.marker(governorates[gov]).addTo(map)
+                .bindPopup(gov)
+                .openPopup();
+        }
+    </script>
+</body>
+</html>
