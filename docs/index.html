@@ -15,6 +15,20 @@
             border: 2px solid #007bff;
             border-radius: 8px;
         }
+        .funding-text {
+            flex: 1;
+            font-size: 1rem;
+            text-align: left;
+        }
+        .funding-logo img {
+            width: 100px; /* Adjust size as needed */
+            margin-left: 20px;
+        }
+  .about-researcher {
+            margin-top: 40px;
+            padding: 15px;
+            border-top: 2px solid #007bff;
+        }
     </style>
 </head>
 <body>
@@ -33,8 +47,37 @@
         <h2>About the Project</h2>
         <p>
             This project aims to create a phonetic database for Jordanian dialects, ready for use in phonetic analysis and statistics. 
-            It provides a resource for researchers interested in studying phonetic similarities and differences across Jordanian dialects..
+            It provides a resource for researchers interested in studying phonetic similarities and differences across Jordanian dialects.
         </p>
+<h2>Collaborative Contribution</h2>
+<div class="collaboration-section">
+    <p class="collaboration-text">
+        This project follows a **collaborative approach**. Researchers with access to the database are encouraged to contribute 
+        by submitting **analyses, improved transcriptions, or additional annotations**. To participate, please contact the project 
+        lead. This participatory approach not only ensures **data quality** but also fosters an **active scientific community** 
+        around the study of Jordanian Arabic dialects.
+    </p>
+</div>
+<h2>Financial Support</h2>
+        <div class="funding-section">
+            <p class="funding-text">
+                This project <strong>“Speech Database of Jordanian Arabic Dialects - SDJAD”</strong> is 
+                funded by <strong>Al-Hussein Bin Talal University</strong> with grant number <strong>85/2022</strong>.
+            </p>
+            <div class="funding-logo">
+                <img src="AHULOGO.png" alt="Al-Hussein Bin Talal University Logo">
+            </div>
+        </div>
+<section class="about-researcher">
+            <h2>About the Researcher</h2>
+            <p>
+                This project was created and developed by **Mohammad Abuoudeh**, assistant professor at the Language and Linguistics Department in Al-Hussein bin Talal University, as the **Project Creator & Principal Researcher**.  
+                As a main contributor, I have been responsible for designing, collecting, and analyzing the data for the **Speech Database of Jordanian Arabic Dialects (SDJAD)**.  
+                I aim to provide a comprehensive and accessible phonetic database for researchers interested in Jordanian Arabic dialects.
+            </p>
+            <p><strong>Contact:</strong> <a href="mailto:mohammad.a.abuoudeh@ahu.edu.jo">contact.SDJAD@ahu.edu.jo</a></p>
+        </section>
+
         <h2>Interactive Map</h2>
         <div id="map"></div>
     </main>
@@ -54,7 +97,7 @@
         var governorates = {
             "Amman": [31.9539, 35.9106],
             "Irbid": [32.5569, 35.8474],
-            "Ajloun": [32.3333, 35.7500],
+            "Ajlun": [32.3333, 35.7500],
             "Zarqa": [32.0836, 36.0942],
             "Mafraq": [32.3428, 36.2080],
             "Jerash": [32.2808, 35.8940],
