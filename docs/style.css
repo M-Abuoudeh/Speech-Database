@@ -1,40 +1,181 @@
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f6f9;
     color: #333;
 }
 
 header {
-    background: #007bff;
+    background: #0056b3;
     color: #fff;
-    padding: 10px 15px;
+    padding: 1rem 0;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    margin-top: 10px;
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
     margin: 0 15px;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.1em;
+    display: inline-block;
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: #ffd700;
+}
+
+/* Liens désactivés */
+nav a.disabled {
+    color: #a0c4e8;
+    pointer-events: none;
+    cursor: default;
 }
 
 main {
-    padding: 20px;
-    max-width: 800px;
+    padding: 30px 20px;
+    max-width: 900px;
     margin: auto;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px; /* Espace en bas de page */
+}
+
+/* --- CORRECTION CARTE (MAP) --- */
+#map {
+    height: 500px;        /* Hauteur fixe obligatoire */
+    width: 100%;          /* Largeur totale */
+    margin: 20px auto;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    z-index: 1; /* S'assure que la carte reste sous le menu si besoin */
+}
+
+/* --- CORRECTION SECTION FINANCEMENT & LOGO --- */
+.funding-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+}
+
+.funding-text {
+    flex: 1; /* Le texte prend toute la place disponible */
+    margin-right: 20px;
+}
+
+.funding-logo img {
+    width: 120px; /* Taille fixée pour le logo : CORRIGE LE PROBLÈME */
+    height: auto; /* Garde les proportions */
+    display: block;
+}
+
+/* Section Collaboration */
+.collaboration-section {
+    background-color: #fff3cd; /* Fond jaune pâle */
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* Section "About Researcher" */
+.about-researcher {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #007bff;
+}
+
+/* Boîte de citation (Pour les chercheurs) */
+.citation-box {
+    background-color: #e8f4fd;
+    border-left: 5px solid #0056b3;
+    padding: 15px;
+    margin: 40px 0 20px 0;
+    border-radius: 4px;
+}
+
+.citation-box blockquote {
+    font-family: 'Courier New', Courier, monospace;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+/* Listes de téléchargement (Villes) */
+ul.city-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+ul.city-list li a {
+    display: block;
+    background: #e9ecef;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #0056b3;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+ul.city-list li a:hover {
+    background: #dbe2e8;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
-    margin: 20px 0;
-    font-size: 0.9em;
-    color: #666;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 4px;
+    }
+    
+    .funding-section {
+        flex-direction: column; /* Empile texte et logo */
+        text-align: center;
+    }
+    
+    .funding-text {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .funding-logo img {
+        margin: 0 auto; /* Centre le logo */
+    }
+    
+    #map {
+        height: 350px; /* Carte un peu plus petite sur mobile */
+    }
 }

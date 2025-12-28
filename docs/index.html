@@ -5,60 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jordanian Arabic Speech Database</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <style>
-        #map {
-            height: 400px;
-            margin: 20px auto;
-            max-width: 800px;
-            border: 2px solid #007bff;
-            border-radius: 8px;
-        }
-        .funding-text {
-            flex: 1;
-            font-size: 1rem;
-            text-align: left;
-        }
-        .funding-logo img {
-            width: 100px; /* Adjust size as needed */
-            margin-left: 20px;
-        }
-  .about-researcher {
-            margin-top: 40px;
-            padding: 15px;
-            border-top: 2px solid #007bff;
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
 <body>
     <header>
         <h1>Jordanian Arabic Speech Database</h1>
         <nav>
+            <a href="index.html">Home</a>
             <a href="task1.html">Laylaa witheeb</a>
-            <a href="task2.html">CVC Words</a>
-            <a href="task3.html">Gemination</a>
-            <a href="task4.html">Ereeh wishams</a>
-            <a href="task5.html">Frog Story</a>
-            <a href="task6.html">Conversation</a>
+            <a href="#" class="disabled" title="Coming Soon">CVC Words</a>
+            <a href="#" class="disabled" title="Coming Soon">Gemination</a>
+            <a href="#" class="disabled" title="Coming Soon">Ereeh wishams</a>
+            <a href="#" class="disabled" title="Coming Soon">Frog Story</a>
+            <a href="#" class="disabled" title="Coming Soon">Conversation</a>
         </nav>
     </header>
+
     <main>
         <h2>About the Project</h2>
         <p>
-            This project aims to create a phonetic database for Jordanian dialects, ready for use in phonetic analysis and statistics. 
-            It provides a resource for researchers interested in studying phonetic similarities and differences across Jordanian dialects.
+            The <strong>Speech Database of Jordanian Arabic Dialects (SDJAD)</strong> is a comprehensive phonetic resource aimed at documenting the linguistic landscape of Jordan. 
+            Data collection was conducted between **2023 and 2024**, gathering recordings from **109 speakers** (both male and female) representing diverse Jordanian governorates and origins.
         </p>
-<h2>Collaborative Contribution</h2>
-<div class="collaboration-section">
-    <p class="collaboration-text">
-        This project follows a **collaborative approach**. Researchers with access to the database are encouraged to contribute 
-        by submitting **analyses, improved transcriptions, or additional annotations**. To participate, please contact the project 
-        lead. This participatory approach not only ensures **data quality** but also fosters an **active scientific community** 
-        around the study of Jordanian Arabic dialects.
-    </p>
-</div>
-<h2>Financial Support</h2>
+        <p>
+            Currently, the **Laylaa witheeb** task (Reading and Storytelling) has been fully processed, transcribed, and segmented. 
+            Additional tasks, including isolated words, semi-spontaneous conversation, and image description, are currently under processing and will be added to the database progressively.
+        </p>
+
+        <h2>Collaborative Contribution</h2>
+        <div class="collaboration-section">
+            <p class="collaboration-text">
+                This project follows a **collaborative approach**. Researchers with access to the database are encouraged to contribute 
+                by submitting **analyses, improved transcriptions, or additional annotations**. To participate, please contact the project 
+                lead. This participatory approach not only ensures **data quality** but also fosters an **active scientific community** around the study of Jordanian Arabic dialects.
+            </p>
+        </div>
+
+        <h2>Financial Support</h2>
         <div class="funding-section">
             <p class="funding-text">
                 This project <strong>“Speech Database of Jordanian Arabic Dialects - SDJAD”</strong> is 
@@ -68,53 +52,80 @@
                 <img src="AHULOGO.png" alt="Al-Hussein Bin Talal University Logo">
             </div>
         </div>
-<section class="about-researcher">
+
+        <section class="about-researcher">
             <h2>About the Researcher</h2>
             <p>
-                This project was created and developed by **Mohammad Abuoudeh**, assistant professor at the Language and Linguistics Department in Al-Hussein bin Talal University, as the **Project Creator & Principal Researcher**.  
-                As a main contributor, I have been responsible for designing, collecting, and analyzing the data for the **Speech Database of Jordanian Arabic Dialects (SDJAD)**.  
-                I aim to provide a comprehensive and accessible phonetic database for researchers interested in Jordanian Arabic dialects.
+                This project was created and developed by **Mohammad Abuoudeh**, assistant professor at the Language and Linguistics Department in Al-Hussein bin Talal University.
+                As the Project Creator & Principal Researcher, I have been responsible for designing, collecting, and analyzing the data to provide an accessible resource for the scientific community.
             </p>
             <p><strong>Contact:</strong> <a href="mailto:mohammad.a.abuoudeh@ahu.edu.jo">contact.SDJAD@ahu.edu.jo</a></p>
         </section>
 
         <h2>Interactive Map</h2>
+        <p>Click on a marker to listen to a dialect sample characteristic of the region.</p>
         <div id="map"></div>
+
+        <div class="citation-box">
+            <h3>How to Cite This Database</h3>
+            <p>If you use this database in your research, please cite the following:</p>
+            <blockquote>
+                Abuoudeh, M. (2025). <em>Speech Database of Jordanian Arabic Dialects (SDJAD)</em>. 
+                [Data set]. Al-Hussein Bin Talal University. 
+                <br>DOI: <strong>[Insert DOI Here]</strong>
+            </blockquote>
+        </div>
+
     </main>
+    
     <footer>
         &copy; 2025 Jordanian Arabic Speech Database. All rights reserved.
     </footer>
-    <script>
-        var map = L.map('map').setView([31.963158, 35.930359], 7); // Centered on Jordan
 
-        // Add OpenStreetMap tiles
+    <script>
+        var map = L.map('map').setView([31.3, 36.5], 7); // Zoom ajusté pour voir tout le pays
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add markers for governorates
+        // Configuration des villes et des fichiers audio associés
+        // IMPORTANT: Tu dois créer un dossier 'audio' et y mettre les fichiers .mp3
         var governorates = {
-            "Amman": [31.9539, 35.9106],
-            "Irbid": [32.5569, 35.8474],
-            "Ajlun": [32.3333, 35.7500],
-            "Zarqa": [32.0836, 36.0942],
-            "Mafraq": [32.3428, 36.2080],
-            "Jerash": [32.2808, 35.8940],
-            "Madaba": [31.7169, 35.7936],
-            "Karak": [31.1851, 35.7047],
-            "Tafilah": [30.8375, 35.6044],
-            "Ma'an": [30.1920, 35.7340],
-            "Aqaba": [29.5320, 35.0060],
-            "Balqa": [32.0392, 35.7272],
-            "Bedouins (South)": [30.5, 35.4],
-            "Bedouins (Center)": [31.5, 36.0]
+            "Amman": { coords: [31.9539, 35.9106], file: "Amman.mp3" },
+            "Irbid": { coords: [32.5569, 35.8474], file: "Irbid.mp3" },
+            "Ajlun": { coords: [32.3333, 35.7500], file: "Ajlun.mp3" },
+            "Zarqa": { coords: [32.0836, 36.0942], file: "Zarqa.mp3" },
+            "Mafraq": { coords: [32.3428, 36.2080], file: "Mafraq.mp3" },
+            "Jerash": { coords: [32.2808, 35.8940], file: "Jerash.mp3" },
+            "Madaba": { coords: [31.7169, 35.7936], file: "Madaba.mp3" },
+            "Karak": { coords: [31.1851, 35.7047], file: "Karak.mp3" },
+            "Tafilah": { coords: [30.8375, 35.6044], file: "Tafileh.mp3" },
+            "Ma'an": { coords: [30.1920, 35.7340], file: "Maan.mp3" },
+            "Aqaba": { coords: [29.5320, 35.0060], file: "Aqaba.mp3" },
+            "Balqa": { coords: [32.0392, 35.7272], file: "Balqa.mp3" },
+            "Bedouins (South)": { coords: [30.0, 35.5], file: "Bedouin_south.mp3" }, // Coordonnées ajustées
+            "Bedouins (Center)": { coords: [31.5, 36.5], file: "Bedouin_center.mp3" } // Coordonnées ajustées
         };
 
-        for (var gov in governorates) {
-            L.marker(governorates[gov]).addTo(map)
-                .bindPopup(gov)
-                .openPopup();
+        for (var name in governorates) {
+            var city = governorates[name];
+            
+            // Création du contenu de la bulle (Popup) avec le lecteur audio
+            var popupContent = `
+                <div style="text-align:center">
+                    <strong>${name}</strong><br>
+                    <span style="font-size:0.9em">Click to listen:</span><br>
+                    <audio controls style="width: 200px; margin-top:5px;">
+                        <source src="audio/${city.file}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            `;
+
+            L.marker(city.coords).addTo(map)
+                .bindPopup(popupContent);
         }
     </script>
 </body>
